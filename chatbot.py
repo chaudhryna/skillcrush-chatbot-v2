@@ -11,6 +11,7 @@ def get_api_chat_response_message(model, messages):
         model = model,
         messages = messages
     )
+    print(api_response)
 
     # extract the response text
     response_content = api_response.choices[0].message.content
@@ -25,10 +26,6 @@ chat_history = []
 if len(chat_history) == 0:
     greeting = "Hi, You can type 'exit' to end the conversation.  What's your name?"
     print(greeting)
-    chat_history.append({
-        "role": "assistant",
-	    "content": greeting
-    })
 
 while True:
     user_input = input("You: ")
